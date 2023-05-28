@@ -1,12 +1,52 @@
-# Welcome to your CDK TypeScript Construct Library project
+# CDK Docker Image Builder 
 
-You should explore the contents of this project. It demonstrates a CDK Construct Library that includes a construct (`Loop`)
-which contains an Amazon SQS queue that is subscribed to an Amazon SNS topic.
+Although the construct can technically build an image from any docker file, its optimaized towards the building of php images. If you want to build images for other languages, there are probably better options out there. 
 
-The construct defines an interface (`LoopProps`) to configure the visibility timeout of the queue.
 
-## Useful commands
+## Installation
 
-* `npm run build`   compile typescript to js
-* `npm run watch`   watch for changes and compile
-* `npm run test`    perform the jest unit tests
+In your existing CDK project, pull in the library using one of the package managers:
+
+```bash
+# Using pnpm
+$ pnpm i @mikemcgrath/phpbuilder
+
+# Using NPM
+$ npm i @mikemcgrath/phpbuilder
+
+# Using Yarn
+yarn add @mikemcgrath/phpbuilder
+```
+
+## Using The Contruct
+
+The below is a basic example of how the contruct could be used in an existing CDK project:
+
+```typescript
+import * as ecr from 'aws-cdk-lib/aws-ecr';
+import * as phpbuilder from 'cdk-docker-image-deployment';
+
+//The Construct requires 3 things - 
+
+//1. and instance of ecr.Repository, either new or existing
+const repo = new ecr.Repository.fromRepositoryName(this, 'MyRepository', 'latest');
+
+//2. A path to a valid Dockerfile location
+const source = phpbuilder.PHPDockerImageSource.directory('path/to/dockerfile');
+
+//3. A valid Docker Image Host, only Supports aws ecr as of now
+const destination = phpbuilder.PHPDockerImageDestination.ecr(repo, {tag: 'latest'});
+```
+
+
+Once you have those 3 items, you can build the constructs and thier corresponding resources:
+
+
+```typescript
+ new phpbuilder.PHPDockerImageBuilder(stack, 'TestDeployment', {
+    source,
+    destination,
+});
+
+```
+

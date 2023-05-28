@@ -23,14 +23,17 @@
     "strictPropertyInitialization": false,
     "typeRoots": [
       "./node_modules/@types"
-    ]
+    ],
+    "outDir": "./lib"
   },
   "include": [
-    "lib/**/*.ts",
-    "test/**/*.ts"
+    "./**/*",
   ],
   "exclude": [
     "node_modules",
-    "cdk.out"
+    "cdk.out",
+    "./test/**/*",
+    "./coverage/**/*",
+    "./test-reports/**/*"
   ]
 }
