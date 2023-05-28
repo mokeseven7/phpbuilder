@@ -1,6 +1,6 @@
 {
   "name": "@mikemcgrath/phpbuilder",
-  "version": "0.9.1",
+  "version": "1.0.0",
   "description": "CDK Docker Builder",
   "license": "MIT",
   "main": "lib/index.js",
