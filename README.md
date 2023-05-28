@@ -18,7 +18,7 @@ $ npm i @mikemcgrath/phpbuilder
 yarn add @mikemcgrath/phpbuilder
 ```
 
-## Using The Contruct
+## Using The Construct
 
 The below is a basic example of how the contruct could be used in an existing CDK project:
 
