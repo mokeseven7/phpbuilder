@@ -16,7 +16,7 @@
   "scripts": {
     "build": "tsc",
     "watch": "tsc -w",
-    "test": "jest --passWithNoTests --updateSnapshot"
+    "test": "jest"
   },
   "devDependencies": {
     "@types/jest": "^29.5.1",
