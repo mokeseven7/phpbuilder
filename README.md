@@ -26,7 +26,7 @@ The below is a basic example of how the contruct could be used in an existing CD
 
 ```typescript
 import * as ecr from 'aws-cdk-lib/aws-ecr';
-import * as phpbuilder from 'cdk-docker-image-deployment';
+import * as phpbuilder from '@mikemcgrath/phpbuilder';
 
 //The Construct requires 3 things - 
 
@@ -38,17 +38,47 @@ const source = phpbuilder.PHPDockerImageSource.directory('path/to/dockerfile');
 
 //3. A valid Docker Image Host, only Supports aws ecr as of now
 const destination = phpbuilder.PHPDockerImageDestination.ecr(repo, {tag: 'latest'});
-```
 
-
-Once you have those 3 items, you can build the constructs and thier corresponding resources:
-
-
-```typescript
- new phpbuilder.PHPDockerImageBuilder(stack, 'TestDeployment', {
+//4. Once you a repo, source and destination, simply call new on the builder
+  new phpbuilder.PHPDockerImageBuilder(stack, 'TestDeployment', {
     source,
     destination,
 });
+```
+
+
+## Full Example:
+
+```typescript
+import * as path from 'path';
+import * as process from 'process';
+import * as cdk from 'aws-cdk-lib';
+import { Construct } from 'constructs';
+import * as ecr from 'aws-cdk-lib/aws-ecr';
+import * as phpbuilder from '@mikemcgrath/phpbuilder';
+
+
+export class MyDockerImageDeployment extends cdk.Stack {
+  constructor(scope: Construct, id: string, props?: cdk.StackProps) {
+    super(scope, id, props);
+    
+    const repository = new ecr.Repository(this, "phpbuilder", {
+      repositoryName: "phpbuilder"
+    });
+
+    const source = phpbuilder.PHPDockerImageSource.directory(path.join(process.cwd()));
+    const destination = phpbuilder.PHPDockerImageDestination.ecr(repository, {tag: 'latest'});
+
+    const image = new phpbuilder.PHPDockerImageBuilder(this, 'PHPBuilderStack', {
+      source,
+      destination
+    })
+  }
+}
 
 ```
+
+Thats It! You can now synthethize and deploy!
+
+
 
