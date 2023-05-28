@@ -80,5 +80,9 @@ export class MyDockerImageDeployment extends cdk.Stack {
 
 Thats It! You can now synthethize and deploy!
 
+## Need More Help?
+
+Theres a full example implementation of how one might use this construct in this [example repo](https://github.com/mokeseven7/phpbuilder-example)
+
 
 
