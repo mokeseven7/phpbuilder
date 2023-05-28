@@ -1,4 +1,4 @@
-[![codecov](https://codecov.io/gh/mokeseven7/phpbuilder/branch/main/graph/badge.svg?token=2GBDST81U7)](https://codecov.io/gh/mokeseven7/phpbuilder)
+[![codecov](https://codecov.io/gh/mokeseven7/phpbuilder/branch/main/graph/badge.svg?token=2GBDST81U7)](https://codecov.io/gh/mokeseven7/phpbuilder) ![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/mokeseven7/phpbuilder/tests.yml?style=flat) ![npm](https://img.shields.io/npm/v/@mikemcgrath/phpbuilder)
 
 # CDK Docker Image Builder 
 
