@@ -39,7 +39,7 @@ const source = phpbuilder.PHPDockerImageSource.directory('path/to/dockerfile');
 //3. A valid Docker Image Host, only Supports aws ecr as of now
 const destination = phpbuilder.PHPDockerImageDestination.ecr(repo, {tag: 'latest'});
 
-//4. Once you a repo, source and destination, simply call new on the builder
+//4. Once you have a repo, source and destination, simply call new on the builder
   new phpbuilder.PHPDockerImageBuilder(stack, 'TestDeployment', {
     source,
     destination,
