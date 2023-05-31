@@ -82,6 +82,6 @@ Thats It! You can now synthethize and deploy!
 
 ## Need More Help?
 
-A full basic example can be found here: [example repo](https://github.com/mokeseven7/phpbuilder-example)
+A full basic example can be found here: [example repo](https://github.com/mokeseven7/phpbuilder-example)  
 A more advanced example can be found here: [JWT authorizer](https://github.com/mokeseven7/lambda-jwt-authorizer)
 
