@@ -2,7 +2,7 @@
 
 # CDK Docker Image Builder 
 
-Although the construct can technically build an image from any docker file, it's optimized towards the building of php images. If you want to build images for other languages, there are probably better options out there.
+Although the construct can technically build an image from any docker file, it's optimized towards the building of php images from the lambda runtime base image. If you want to build images for other languages, there are probably better options out there. 
 
 
 ## Installation
